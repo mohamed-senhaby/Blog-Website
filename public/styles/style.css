@@ -1,0 +1,40 @@
+main {
+  height: 100vh;
+  padding: 5rem 0;
+}
+
+main .container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-left: 5rem;
+}
+
+main .container form {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-top: 2rem;
+  font-weight: bold;
+}
+
+main .container form label {
+  margin-bottom: 0.5rem;
+}
+
+main .container form input {
+  margin-bottom: 0.5rem;
+}
+
+main .container button {
+  width: 5rem;
+  margin-top: 2rem;
+}
+
+.navbar-brand {
+  margin: 0 80rem 0 2rem !important;
+}
+
+.navbar-nav .nav-link {
+  margin-right: 2rem;
+}
