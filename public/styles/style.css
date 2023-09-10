@@ -36,5 +36,6 @@ main .container button {
 }
 
 .navbar-nav .nav-link {
-  margin-right: 2rem;
+  margin-right: 1.5rem;
+  white-space: nowrap;
 }
