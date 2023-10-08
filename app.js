@@ -83,23 +83,40 @@ app.post("/compose", async (req, res) => {
 });
 
 app.get("/posts/:postNumber", async (req, res) => {
-  // var requestRoute = _.lowerCase(req.params.postNumber);
-
   try {
     const blog = await BlogPost.findOne({ title: req.params.postNumber });
+
+    if (!blog) {
+      res.status(404).render("notfound.ejs");
+      return;
+    }
+
     res.render("posts.ejs", {
       title: blog.title,
       content: blog.post,
       readMore: `/posts/${blog.title}`,
     });
   } catch (error) {
-    console.error("Error retrieving items:", error);
+    console.error("Error retrieving item:", error);
+    res.redirect("/");
+  }
+});
+
+// Delete task
+app.post("/delete", async (req, res) => {
+  const blogItemId = req.body.deleteButton;
+
+  try {
+    await BlogPost.findByIdAndRemove(blogItemId);
+    res.redirect("/");
+  } catch (error) {
+    console.error("Error deleting item:", error);
     res.redirect("/");
   }
 });
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Backend server is running on http://localhost:${port}`);
 });
 
 connectToDatabase();

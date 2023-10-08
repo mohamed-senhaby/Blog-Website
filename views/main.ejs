@@ -4,10 +4,26 @@
 <p><%= intialContant %></p>
 <% content.forEach(element => { %>
 
-<h2><%= element.title %></h2>
+<h2>
+  <%= element.title %>
+  <span>|</span>
+  <form action="/delete" method="post">
+    <button
+      type="submit"
+      class="btn btn-success"
+      name="deleteButton"
+      value="<%= element._id %>"
+    >
+      Delete
+    </button>
+  </form>
+</h2>
 
 <p>
-  <%= element.post.substring(0,100) + " ... " %><a href="/posts/<%= element.title %>" >Read More</a>
+  <%= element.post.substring(0,100) + " ... " %><a
+    href="/posts/<%= element.title %>"
+    >Read More</a
+  >
 </p>
 
 <% }) %> <%- include("partials/footer.ejs") %>

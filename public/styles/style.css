@@ -1,6 +1,7 @@
 main {
   height: 100vh;
   padding: 5rem 0;
+  margin-bottom: 5rem;
 }
 
 main .container {
@@ -8,6 +9,12 @@ main .container {
   justify-content: space-between;
   flex-direction: column;
   margin-left: 5rem;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 main .container form {
@@ -26,16 +33,29 @@ main .container form input {
   margin-bottom: 0.5rem;
 }
 
-main .container button {
-  width: 5rem;
-  margin-top: 2rem;
-}
-
 .navbar-brand {
-  margin: 0 80rem 0 2rem !important;
+  margin: 0 74rem 0 2rem !important;
 }
 
 .navbar-nav .nav-link {
   margin-right: 1.5rem;
   white-space: nowrap;
+}
+
+/* Add the following CSS to make h2, span, and button appear in the same line */
+main .container h2 {
+  display: flex;
+  align-items: center;
+}
+
+main .container h2 span {
+  margin: 0 0.5rem; /* Adjust this value as needed for spacing */
+}
+
+main .container button {
+  margin-bottom: 1.5rem;
+}
+
+form textarea {
+  margin-bottom: 3rem;
 }
